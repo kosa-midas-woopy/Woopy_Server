@@ -32,7 +32,6 @@ public class Work extends BaseEntity {
     @Column
     private String endWorkTime;
 
-
     @Column
     private String date;
 
