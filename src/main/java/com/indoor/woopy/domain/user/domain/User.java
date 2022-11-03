@@ -1,5 +1,7 @@
 package com.indoor.woopy.domain.user.domain;
 
+import com.indoor.woopy.domain.registeration.domain.Registeration;
+import com.indoor.woopy.domain.work.domain.Work;
 import com.indoor.woopy.global.entity.BaseEntity;
 import com.indoor.woopy.global.enums.UserRole;
 import com.indoor.woopy.global.enums.WorkStatus;
@@ -11,6 +13,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -52,10 +55,11 @@ public class User extends BaseEntity {
     @Column(length = 5)
     private UserRole role;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(length = 5)
-    private WorkStatus status;
+    @OneToMany(mappedBy = "user")
+    private List<Work> works;
+
+    @OneToMany(mappedBy = "user")
+    private List<Registeration> registerations;
 
     @Builder
     public User(String email, String password, String name, String companyName,
@@ -67,6 +71,5 @@ public class User extends BaseEntity {
         this.department = department;
         this.position = position;
         this.role = role;
-        this.status = status;
     }
 }
