@@ -41,6 +41,18 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 
+                // users
+                .antMatchers(HttpMethod.POST, "/users").permitAll()
+                .antMatchers(HttpMethod.POST, "/users/token").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/users/logout").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/users/leave").authenticated()
+
+                // admin
+                .antMatchers(HttpMethod.POST, "/admin").permitAll()
+                .antMatchers(HttpMethod.POST, "/admin/token").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/admin/logout").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/admin/leave").hasAnyAuthority("ADMIN")
+
                 .anyRequest().denyAll()
 
                 .and()
