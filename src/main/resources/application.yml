@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${JDBC_URL}
-    username: ${DB_USER}
-    password: ${DB_PWD}
+    url: ${JDBC_URL:jdbc:mysql://woopy.crhtjki26cv8.ap-northeast-2.rds.amazonaws.com:3306/woopy}
+    username: ${DB_USER:admin}
+    password: ${DB_PWD:admin1234}
     hikari:
       max-lifetime: 600000
 
@@ -24,9 +24,9 @@ spring:
     timeout-per-shutdown-phase: 30s
 
 jwt:
-  secret-key: ${JWT_SECRET_KEY}
-  access-exp: ${JWT_ACCESS_EXP}
-  refresh-exp: ${JWT_REFRESH_EXP}
+  secret-key: ${JWT_SECRET_KEY:test123456}
+  access-exp: ${JWT_ACCESS_EXP:12345}
+  refresh-exp: ${JWT_REFRESH_EXP:1234567}
 
 logging:
   level:
