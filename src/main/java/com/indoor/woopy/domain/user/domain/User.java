@@ -1,5 +1,7 @@
 package com.indoor.woopy.domain.user.domain;
 
+import com.indoor.woopy.domain.admin.presentation.dto.request.AdminToUserUpdateRequest;
+import com.indoor.woopy.domain.user.presentation.dto.request.UpdateUserRequest;
 import com.indoor.woopy.domain.registeration.domain.Registeration;
 import com.indoor.woopy.domain.work.domain.Work;
 import com.indoor.woopy.global.entity.BaseEntity;
@@ -71,5 +73,17 @@ public class User extends BaseEntity {
         this.department = department;
         this.position = position;
         this.role = role;
+    }
+
+    public void updateUser(UpdateUserRequest request) {
+        this.name = request.getName();
+        this.department = request.getDepartment();
+        this.position = request.getPosition();
+    }
+
+    public void updateUserByAdmin(AdminToUserUpdateRequest request) {
+        this.name = request.getName();
+        this.department = request.getDepartment();
+        this.position = request.getPosition();
     }
 }
