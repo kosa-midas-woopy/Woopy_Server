@@ -2,11 +2,9 @@ package com.indoor.woopy.domain.admin.presentation;
 
 import com.indoor.woopy.domain.admin.presentation.dto.request.AdminSignInRequest;
 import com.indoor.woopy.domain.admin.presentation.dto.request.AdminSignUpRequest;
+import com.indoor.woopy.domain.admin.presentation.dto.request.AdminToUserUpdateRequest;
 import com.indoor.woopy.domain.admin.presentation.dto.response.AdminTokenResponse;
-import com.indoor.woopy.domain.admin.service.AdminLogOutService;
-import com.indoor.woopy.domain.admin.service.AdminSignInService;
-import com.indoor.woopy.domain.admin.service.AdminSignUpService;
-import com.indoor.woopy.domain.admin.service.AdminWithdrawalService;
+import com.indoor.woopy.domain.admin.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -24,6 +22,7 @@ public class AdminController {
     private final AdminSignInService adminSignInService;
     private final AdminLogOutService adminLogOutService;
     private final AdminWithdrawalService adminWithdrawalService;
+    private final AdminToUserUpdateService adminToUserUpdateService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
@@ -46,5 +45,11 @@ public class AdminController {
     @DeleteMapping("/leave")
     public void leave() {
         adminWithdrawalService.execute();
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/updateUser/{email}")
+    public void setAdminToUserUpdate(@RequestBody @Valid AdminToUserUpdateRequest request) {
+        adminToUserUpdateService.execute(request);
     }
 }
