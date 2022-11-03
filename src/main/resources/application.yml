@@ -1,6 +1,3 @@
-server:
-  shutdown: graceful
-
 spring:
   datasource:
     url: ${JDBC_URL}
