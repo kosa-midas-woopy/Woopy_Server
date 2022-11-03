@@ -46,12 +46,17 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/users/token").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/users/logout").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/users/leave").authenticated()
+                .antMatchers(HttpMethod.PUT, "/users").authenticated()
 
                 // admin
                 .antMatchers(HttpMethod.POST, "/admin").permitAll()
                 .antMatchers(HttpMethod.POST, "/admin/token").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/admin/logout").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/admin/leave").hasAnyAuthority("ADMIN")
+                // works
+                .antMatchers(HttpMethod.POST, "/works/go").permitAll()
+                .antMatchers(HttpMethod.POST, "/works/leave").permitAll()
+                .antMatchers(HttpMethod.GET, "/works/").permitAll()
 
                 .anyRequest().denyAll()
 
