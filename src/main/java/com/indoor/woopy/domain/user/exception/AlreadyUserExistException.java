@@ -1,4 +1,4 @@
-package com.indoor.woopy.global.exception;
+package com.indoor.woopy.domain.user.exception;
 
 import com.indoor.woopy.global.error.exception.GlobalErrorCode;
 import com.indoor.woopy.global.error.exception.WoopyException;
