@@ -6,7 +6,6 @@ import com.indoor.woopy.domain.user.domain.repository.UserRepository;
 import com.indoor.woopy.domain.user.facade.UserFacade;
 import com.indoor.woopy.domain.user.presentation.dto.request.UserSignUpRequest;
 import com.indoor.woopy.global.enums.UserRole;
-import com.indoor.woopy.global.enums.WorkStatus;
 import com.indoor.woopy.global.property.jwt.JwtProperties;
 import com.indoor.woopy.global.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
