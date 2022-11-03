@@ -26,21 +26,16 @@ public class RefreshToken {
     @NotNull
     private Long timeToLive;
 
-    @NotNull
-    private Long userId;
-
     @Builder
-    public RefreshToken(String email, String token, Long timeToLive, Long userId) {
+    public RefreshToken(String email, String token, Long timeToLive) {
         this.email = email;
         this.token = token;
         this.timeToLive = timeToLive;
-        this.userId = userId;
     }
 
-    public RefreshToken updateToken(String token, Long timeToLive, Long userId) {
+    public RefreshToken updateToken(String token, Long timeToLive) {
         this.token = token;
         this.timeToLive = timeToLive;
-        this.userId = userId;
         return this;
     }
 

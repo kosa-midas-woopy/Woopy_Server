@@ -20,9 +20,11 @@ public enum GlobalErrorCode {
     // 404
     USER_NOT_FOUND(404, "User Not Found"),
     REFRESH_TOKEN_NOT_FOUND(404, "RefreshToken Not Found"),
+    ADMIN_NOT_FOUND(404, "Admin Not Found"),
 
     // 409
     ALREADY_USER_EXIST(409, "Already User Exist"),
+    ALREADY_ADMIN_EXIST(409, "Already Admin Exist"),
 
     // 500
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");
