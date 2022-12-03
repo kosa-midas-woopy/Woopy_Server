@@ -39,7 +39,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/woopy:latest
           build-args : |
-            DB_URL=${{ secrets.JDBC_URL }}
+            JDBC_URL=${{ secrets.JDBC_URL }}
             DB_USER=${{ secrets.DB_USER }}
             DB_PWD=${{ secrets.DB_PWD }}
             JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}
